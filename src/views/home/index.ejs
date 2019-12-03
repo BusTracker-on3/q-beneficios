@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-br">
+ 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <title>Q-benefícios</title>
+</head>
+
+<body>
+
+    <div class="logo">
+        <img src="images/logo_qbeneficios.jpeg" alt="" class="logo_main">
+    </div>
+
+    <div class="content_home">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <canvas id="chLine"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>     
+        </div>
+
+    </div>   
+
+    <div class="fab"  ontouchstart="">
+        <button class="main" ></button>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/Chart.bundle.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script>
+        var chartData = {
+            labels: ["S", "M", "T", "W", "T", "F", "S"],
+            datasets: [{
+                data: [589, 445, 483, 503, 689, 692, 634],
+            },
+            {
+                data: [639, 465, 493, 478, 589, 632, 674],
+            }]
+        };
+
+        var chLine = document.getElementById("chLine");
+        if (chLine) {
+            new Chart(chLine, {
+                type: 'line',
+                data: chartData,
+                options: {
+                    scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: false
+                        }
+                    }]
+                    },
+                    legend: {
+                        display: false
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+ 
+</html>
