@@ -10,6 +10,10 @@ body {
     margin-top: 20px;
 }
 
+.wrapper {
+    background-color: #457eac;
+}
+
 .logo {
     background-color: #686868;
 }
@@ -48,7 +52,7 @@ b{
     border-radius: 30px;
     background-color: #686868;
     right: 30px;
-    bottom: 30px;
+    bottom: 100px;
     z-index: 20;
 }
   
@@ -67,6 +71,7 @@ b{
     margin-top: 20px;
     margin-bottom: 30px;
     border: none;
+    cursor: pointer;
     -webkit-box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
     -moz-box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
     box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);

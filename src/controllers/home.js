@@ -1,3 +1,4 @@
 module.exports.index = function(application, request, response){
-    response.render('home/index');   
+    var DAO = new application.src.models.roleDAO(request);
+    DAO.getAll(response);
 }
