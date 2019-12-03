@@ -6,6 +6,10 @@ body {
     font-size: 16px;
 }
 
+.container {
+    margin-top: 20px;
+}
+
 .logo {
     background-color: #686868;
 }
