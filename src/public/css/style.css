@@ -6,21 +6,47 @@ body {
     font-size: 16px;
 }
 
+h3{
+    text-align: center;
+}
+
 .container {
     margin-top: 20px;
 }
 
 .wrapper {
     background-color: #457eac;
+    overflow: auto;
+    margin: 0 auto;
 }
 
 .logo {
-    background-color: #686868;
+    background-color: #457eac;
+    height: 90px;
+    overflow: auto;
+    margin: 0 auto;
 }
 
+.image{
+    float: left;
+    margin-top: 20px;
+    widows: 200px;
+    margin-left: 500px;
+}
+
+.text_logo{
+    float: left;
+    margin-top: 20px;
+    color: #fff;
+    margin-left: 10px;
+    max-width: 300px;
+}
+
+
 .content_home{
-    background-color: #c2aff0;
-    height: 400px;
+    background-color: #686868;
+    overflow: auto;
+    margin: 0 auto;
 }
 
 b{
@@ -28,6 +54,15 @@ b{
     bottom:10px;
     right:10px;
   }
+
+.bt_new_role {
+    overflow: auto;
+    align-items: center;
+}
+
+.bt_new_role button.main{
+    margin-left: 580px;
+}
   
 .fab button{
     cursor: pointer;
@@ -51,8 +86,8 @@ b{
     height: 60px;
     border-radius: 30px;
     background-color: #686868;
-    right: 30px;
-    bottom: 100px;
+    right: 20px;
+    bottom: 90px;
     z-index: 20;
 }
   
@@ -69,6 +104,8 @@ b{
 
 .card {
     margin-top: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
     margin-bottom: 30px;
     border: none;
     cursor: pointer;
