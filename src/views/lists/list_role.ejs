@@ -27,13 +27,13 @@
     </div>
     
 
-    <div class="content_home">
+    <div class="content_home_role">
         <div class="container">
             <div class="row">
                 <div class="col-6">
                     <div class="card">
                         <div class="card-body">
-                            <h3>Gasto com Benefícios</h3>
+                            <h3>Gasto com Benefícios por Mês</h3>
                             <canvas id="pieChart"></canvas>
                         </div>
                     </div>
@@ -41,17 +41,60 @@
                 <div class="col-6">
                         <div class="card">
                             <div class="card-body">
-                                <h3>Quantidade de funcionários : 20</h3>
+                                <h3><b> Quantidade de funcionários: </b> 20</h3>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-body">
-                                <h3>Salário : <%= role[0].salary %></h3>
+                                <h3><b> Salário Individual por Mês: </b> <%= role[0].salary %></h3>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-body">
-                                <h3>13º Anual (MAX) : <%= (role[0].salary / 12) * 10 %></h3>
+                                <h3><b>13º Anual (MAX): </b> <%= (role[0].salary / 12) * 10 %></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="container">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h2 style="text-align: center;"><b>Atribuições</b></h2>
+                                    <ul>
+                                        <% for(var i = 0; i < role.length; i++) { %>
+                                            <li><%= role[i].main_task_one %></li>
+                                            <% if(role[i].main_task_two != '') { %>
+                                                <li><%= role[i].main_task_two %></li>
+                                            <% } %>
+                                            <% if(role[i].main_task_three != '') { %>
+                                                <li><%= role[i].main_task_three %></li>
+                                            <% } %>
+                                        <% } %>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3><b>Salário Individual por Ano:</b> <%= role[0].salary * 12 %></h3>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3><b>Gasto Salarial por Ano: </b> <%= role[0].salary * 12 * 20 %></h3>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3>Gasto com Benefícios por Ano</h3>
+                                <canvas id="pieChartAno"></canvas>
                             </div>
                         </div>
                     </div>
@@ -75,6 +118,22 @@
         labels: [json[0].benefit_one, json[0].benefit_two, json[0].benefit_three],
         datasets: [{
           data: [json[0].value_benefit_one, json[0].value_benefit_two, json[0].value_benefit_three],
+          backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C"],
+          hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870"]
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
+
+    var ctxPAno = document.getElementById("pieChartAno").getContext('2d');
+    var myPieChartAno = new Chart(ctxPAno, {
+      type: 'pie',
+      data: {
+        labels: [json[0].benefit_one, json[0].benefit_two, json[0].benefit_three],
+        datasets: [{
+          data: [json[0].value_benefit_one * 12, json[0].value_benefit_two * 12, json[0].value_benefit_three * 12],
           backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C"],
           hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870"]
         }]

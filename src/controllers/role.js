@@ -36,6 +36,7 @@ module.exports.delete_role = function(application, request, response) {
     var id = request.query.id;
     var roleDAO = new application.src.models.roleDAO(request);
     roleDAO.removeRole(id, response);
+    response.redirect('/roles');
 }
 
 module.exports.list_role = function(application, request, response) {

@@ -51,7 +51,7 @@ RoleDAO.prototype.getByName = function(name, response) {
 RoleDAO.prototype.removeRole = function(id, response) {
     this._request.db.collection("roles", function(error, collection) {
         collection.remove({'_id': ObjectId(id)});
-        response.redirect('/roles');
+    //    response.redirect('/roles');
     });
 }
 

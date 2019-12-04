@@ -53,6 +53,12 @@ h3{
     margin: 0 auto;
 }
 
+.content_home_role{
+    background-color: #686868;
+    overflow: auto;
+    margin: 0 auto;
+}
+
 .form_style {
     background-color: #686868;
     overflow: auto;
@@ -67,12 +73,6 @@ h3{
     margin-bottom: 20px;
 }
 
-
-b{
-    position: fixed;
-    bottom:10px;
-    right:10px;
-  }
 
 .bt_new_role {
     overflow: auto;
@@ -98,6 +98,9 @@ b{
     color: #fff;
 }
 
+.wrapper_lists table img{
+    cursor: pointer;
+}
   
 .card {
     margin-top: 20px;
