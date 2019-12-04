@@ -23,7 +23,7 @@ module.exports.register_role = function(application, request, response){
 module.exports.list_roles = function(application, request, response) {
     var tag = 'list';
     var roleDAO = new application.src.models.roleDAO(request);
-    roleDAO.getAll2(response);
+    roleDAO.getAll(tag, response);
 }
 
 module.exports.update_role = function(application, request, response) {
@@ -36,4 +36,9 @@ module.exports.delete_role = function(application, request, response) {
     var id = request.query.id;
     var roleDAO = new application.src.models.roleDAO(request);
     roleDAO.removeRole(id, response);
+}
+
+module.exports.list_role = function(application, request, response) {
+    var roleDAO = new application.src.models.roleDAO(request);
+    roleDAO.getByName(request.query.name.toString(), response);
 }

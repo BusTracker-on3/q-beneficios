@@ -18,4 +18,8 @@ module.exports = function(application){
     application.get('/delete_role', function(request, response) {
         application.src.controllers.role.delete_role(application, request, response);
     });
+    
+    application.get('/role', function(request, response) {
+        application.src.controllers.role.list_role(application, request, response);
+    });
 }
