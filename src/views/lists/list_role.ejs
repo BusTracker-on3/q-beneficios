@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-br">
+ 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <title>Q-benefícios</title>
+</head>
+
+<body>
+
+    <div class="logo">
+        <a href="/">
+            <div class="image">
+                <img src="images/icone.jpeg" alt="">
+            </div>
+               
+            <div class="text_logo">
+                <h1>Q-benefícios</h1>
+            </div>        
+        </a>
+    <!--    <img src="images/teste.jpeg" alt="" class="logo_main"> -->
+    </div>
+    
+
+    <div class="content_home">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>Gasto com Benefícios</h3>
+                            <canvas id="pieChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>     
+        </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/Chart.bundle.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/chart.js"></script>
+    <script type="text/javascript">
+    
+    var json = <%- JSON.stringify(role) %>;
+
+    //pie chart
+    var ctxP = document.getElementById("pieChart").getContext('2d');
+    var myPieChart = new Chart(ctxP, {
+      type: 'pie',
+      data: {
+        labels: [json[0].benefit_one, json[0].benefit_two, json[0].benefit_three],
+        datasets: [{
+          data: [json[0].value_benefit_one, json[0].value_benefit_two, json[0].value_benefit_three],
+          backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C"],
+          hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870"]
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
+    </script>
+</body>
+ 
+</html>

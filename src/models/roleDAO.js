@@ -28,6 +28,14 @@ RoleDAO.prototype.getAll2 = function(response) {
     });
 }
 
+RoleDAO.prototype.getByName = function(name, response) {
+    this._request.db.collection("roles", function(error, collection) {
+        collection.find({"name":name}).toArray(function(erro, result) {
+            response.render('lists/list_role', {role: result});
+        });
+    });
+}
+
 module.exports = function(){
     return RoleDAO;
 }

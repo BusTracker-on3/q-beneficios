@@ -10,4 +10,8 @@ module.exports = function(application){
     application.get('/roles', function(request, response) {
         application.src.controllers.role.list_roles(application, request, response);
     });
+
+    application.get('/role', function(request, response) {
+        application.src.controllers.role.list_role(application, request, response);
+    });
 }
