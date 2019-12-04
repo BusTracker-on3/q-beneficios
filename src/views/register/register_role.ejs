@@ -18,7 +18,8 @@
     </div>
 
     <div class="container">
-        <form method="POST" action="/register_role">
+        <% if(role.length == 0) { %>
+        <form class="needs-validation" method="POST" action="/register_role">
             <div class="form-row">
                 <div class="form-group col-md-9">
                 <label for="name">Nome do Cargo (*)</label>
@@ -62,7 +63,7 @@
     
                     <div class="form-group col-md-3">
                     <label for="value_benefit_two">Valor do Benefício 2</label>
-                    <input type="number" min="0" class="form-control" id="value_benefit_two" name="value_benefit_two" placeholder="Ex: 1.000,00" required>
+                    <input type="number" min="0" class="form-control" id="value_benefit_two" name="value_benefit_two" placeholder="Ex: 1.000,00">
                 </div>
             </div>
 
@@ -80,6 +81,70 @@
 
             <button type="submit" class="btn btn-primary">CADASTRAR</button>
         </form>
+        <% } else {%>
+            <form class="needs-validation" method="POST" action="/register_role?id=<%= validation %>">
+                <div class="form-row">
+                    <div class="form-group col-md-9">
+                    <label for="name">Nome do Cargo (*)</label>
+                    <input type="name" class="form-control" value="<%= role[0].name %>" id="name" name="name" placeholder="Ex: FullStack" required>
+                    </div>
+    
+                    <div class="form-group col-md-3">
+                    <label for="salary">Salário (*)</label>
+                    <input type="number" min="0" class="form-control" value="<%= role[0].salary %>" id="salary" name="salary" placeholder="Ex: 1.000,00" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="main_task_one">Principal Atribuição 1 (*)</label>
+                    <input type="text" class="form-control" value="<%= role[0].main_task_one %>" id="main_task_one" name="main_task_one" placeholder="Ex: Desenvolver APIs" required>
+                </div>
+                <div class="form-group">
+                    <label for="main_task_two">Principal Atribuição 2</label>
+                    <input type="text" class="form-control" value="<%= role[0].main_task_two %>" id="main_task_two" name="main_task_two" placeholder="Ex: Limpar o código">
+                </div>
+                <div class="form-group">
+                    <label for="main_task_three">Principal Atribuição 3</label>
+                    <input type="text" class="form-control" value="<%= role[0].main_task_three %>" id="main_task_three" name="main_task_three" placeholder="Ex: Atuar como DevOps">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-9">
+                        <label for="benefit_one">Benefício 1 (*)</label>
+                        <input type="text" class="form-control" value="<%= role[0].benefit_one %>" id="benefit_one" name="benefit_one" placeholder="Ex: Vale-Transporte" required>
+                        </div>
+        
+                        <div class="form-group col-md-3">
+                        <label for="value_benefit_one">Valor do Benefício 1 (*)</label>
+                        <input type="number" min="0" class="form-control" value="<%= role[0].value_benefit_one %>" id="value_benefit_one" name="value_benefit_one" placeholder="Ex: 1.000,00" required>
+                    </div>
+                </div>
+    
+                <div class="form-row">
+                    <div class="form-group col-md-9">
+                        <label for="benefit_two">Benefício 2</label>
+                        <input type="text" class="form-control" value="<%= role[0].benefit_two %>" id="benefit_two" name="benefit_two" placeholder="Ex: Vale-Alimentação">
+                        </div>
+        
+                        <div class="form-group col-md-3">
+                        <label for="value_benefit_two">Valor do Benefício 2</label>
+                        <input type="number" min="0" class="form-control" value="<%= role[0].value_benefit_two %>" id="value_benefit_two" name="value_benefit_two" placeholder="Ex: 1.000,00" required>
+                    </div>
+                </div>
+    
+                <div class="form-row">
+                    <div class="form-group col-md-9">
+                        <label for="benefit_three">Benefício 3</label>
+                        <input type="text" class="form-control" value="<%= role[0].benefit_three %>" id="benefit_three" name="benefit_three" placeholder="Ex: Bonus">
+                        </div>
+        
+                        <div class="form-group col-md-3">
+                        <label for="value_benefit_three">Valor do Benefício 3</label>
+                        <input type="number" min="0" class="form-control" value="<%= role[0].value_benefit_three %>" id="value_benefit_three" name="value_benefit_three" placeholder="Ex: 1.000,00">
+                    </div>
+                </div>
+    
+                <button type="submit" class="btn btn-primary">ATUALIZAR</button>
+            </form>
+        <% } %>
     </div>
 
     <div class="footer">

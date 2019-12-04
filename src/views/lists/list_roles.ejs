@@ -42,10 +42,10 @@
                             <th scope="col">NOME</th>
                             <th scope="col">SALÁRIO</th>
                             <th scope="col">ATIVIDADE 1</th>
-                            <th scope="col">BENEFÍCIO 1</th>
                             <th scope="col">ATIVIDADE 2</th>
-                            <th scope="col">BENEFÍCIO 2</th>
                             <th scope="col">ATIVIDADE 3</th>
+                            <th scope="col">BENEFÍCIO 1</th>
+                            <th scope="col">BENEFÍCIO 2</th>
                             <th scope="col">BENEFÍCIO 3</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
@@ -58,34 +58,71 @@
                                     <td><%= vector_roles[i].name %></td>
                                     <td><%= vector_roles[i].salary %></td>
                                     <td><%= vector_roles[i].main_task_one %></td>
-                                    <td><%= vector_roles[i].benefit_one %></td>
                                     <% if(vector_roles[i].main_task_two != '') { %>
                                         <td><%= vector_roles[i].main_task_two %></td>
-                                    <% } %>
-                                    <% if(vector_roles[i].benefit_two != '') { %>
-                                        <td><%= vector_roles[i].benefit_two %></td>
-                                    <% } %>
+                                    <% } else { %> <td></td> <% } %>
                                     <% if(vector_roles[i].main_task_three != '') { %>
                                         <td><%= vector_roles[i].main_task_three %></td>
-                                    <% } %>
+                                    <% } else { %> <td></td> <% } %>
+                                    <td><%= vector_roles[i].benefit_one %> - <%= vector_roles[i].value_benefit_one %></td>
+                                    <% if(vector_roles[i].benefit_two != '') { %>
+                                        <td><%= vector_roles[i].benefit_two %> - <%= vector_roles[i].value_benefit_two %></td>
+                                    <% } else { %> <td></td> <% } %>
                                     <% if(vector_roles[i].benefit_three != '') { %>
-                                        <td><%= vector_roles[i].benefit_three %></td>
-                                    <% } %>
+                                        <td><%= vector_roles[i].benefit_three %> - <%= vector_roles[i].value_benefit_three %></td>
+                                    <% } else { %> <td></td> <% } %>
                                     <td><a href="/update_role?id=<%= vector_roles[i]._id %>">
                                         <img src="images/update_icon.png" class="icon" alt="Atualizar"/>
                                     </a></td>
-                                    <td><a href="/delete_role?id=<%= vector_roles[i]._id %>">
+                                    <td><a data-target="#ModalRemoveRole" data-toggle="modal" >
                                         <img src="images/delete_icon.jpeg" class="icon" alt="Remover">
                                     </a></td>
                                 </tr>
+                                <div id="ModalRemoveRole" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Aviso</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p class="lead text-xs-center">Você realmente deseja excluir esse cargo? </p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a class="btn btn-success" href="/delete_role?id=<%= vector_roles[i]._id %>">Sim</a>
+                                                <a class="btn btn-danger" data-dismiss="modal">Cancelar</a>
+                                                <!--<div class="lead text-xs-center"><a class="btn btn-info" href="/auth/register">Create Account</a> or
+                                                    <a class="btn btn-success" href="/auth/login">Sign In</a></div>-->
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div><!-- /.modal -->
                             <% } %>
                         </tbody>
                     </table>
+                </div>
+            <% } else { %>
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="text-muted">Aviso</h5>
+                            <div class="metric-value d-inline-block">
+                                    <h3>Não tem cargos cadastrados no sistema no momento.</h3>
+                                    <a class="btn btn-info" href="/">Volte mais tarde.</a>
+                            </div>
+                            <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                <span><i class="fa fa-fw fa-arrow-up"></i></span><span></span>
+                            </div>
+                        </div>
+                        <div id="sparkline-revenue"></div>
+                    </div>
                 </div>
             <% } %>
         </div>
     </div>
 
+    <script>
+        $('#form').parsley();
+    </script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/Chart.bundle.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
