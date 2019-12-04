@@ -14,39 +14,27 @@
 <body>
 
     <div class="logo">
-        <img src="images/logo_qbeneficios.jpeg" alt="" class="logo_main">
-    </div>
-
-    <!--<div class="content_home">
-        <div class="container">
-            <div class="row">
-                <div class="col-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <canvas id="chLine"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>     
+        <div class="image">
+            <a href="/"><img src="images/icone.jpeg" alt=""></a>
         </div>
-    </div>-->
+            
+        <div class="text_logo">
+            <h1>Q-benefícios</h1>
+        </div>        
+    </div>
     
-    <div class="wrapper">
-        <div class="row">
+    <div class="wrapper_lists">
+        <div class="container">
             <% if(vector_roles.length > 0) { %>
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+<!--                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"> -->
                     <table class="table table-hover">
                         <thead class="table-danger">
                           <tr>
                             <th scope="col">ID</th>
                             <th scope="col">NOME</th>
                             <th scope="col">SALÁRIO</th>
-                            <th scope="col">ATIVIDADE 1</th>
                             <th scope="col">BENEFÍCIO 1</th>
-                            <th scope="col">ATIVIDADE 2</th>
-                            <th scope="col">BENEFÍCIO 2</th>
-                            <th scope="col">ATIVIDADE 3</th>
-                            <th scope="col">BENEFÍCIO 3</th>
+                            <th scope="col">VALOR DO BENEFICIO 1</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
                           </tr>
@@ -54,23 +42,11 @@
                         <tbody>
                             <% for(var i = 0; i < vector_roles.length; i++) { %>
                                 <tr>
-                                    <th scope="row"><%= i + 1 %></th>
+                                    <td><%= i + 1 %></td>
                                     <td><%= vector_roles[i].name %></td>
                                     <td><%= vector_roles[i].salary %></td>
-                                    <td><%= vector_roles[i].main_task_one %></td>
                                     <td><%= vector_roles[i].benefit_one %></td>
-                                    <% if(vector_roles[i].main_task_two != '') { %>
-                                        <td><%= vector_roles[i].main_task_two %></td>
-                                    <% } %>
-                                    <% if(vector_roles[i].benefit_two != '') { %>
-                                        <td><%= vector_roles[i].benefit_two %></td>
-                                    <% } %>
-                                    <% if(vector_roles[i].main_task_three != '') { %>
-                                        <td><%= vector_roles[i].main_task_three %></td>
-                                    <% } %>
-                                    <% if(vector_roles[i].benefit_three != '') { %>
-                                        <td><%= vector_roles[i].benefit_three %></td>
-                                    <% } %>
+                                    <td><%= vector_roles[i].value_benefit_one %></td>
                                     <td><a href="/update_role?id=<%= vector_roles[i]._id %>">
                                         <img src="images/update_icon.png" class="icon" alt="Atualizar"/>
                                     </a></td>
@@ -81,45 +57,16 @@
                             <% } %>
                         </tbody>
                     </table>
-                </div>
+                
             <% } %>
         </div>
+<!--   </div>      -->
     </div>
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/Chart.bundle.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
-    <!--<script>
-        var chartData = {
-            labels: ["S", "M", "T", "W", "T", "F", "S"],
-            datasets: [{
-                data: [589, 445, 483, 503, 689, 692, 634],
-            },
-            {
-                data: [639, 465, 493, 478, 589, 632, 674],
-            }]
-        };
-
-        var chLine = document.getElementById("chLine");
-        if (chLine) {
-            new Chart(chLine, {
-                type: 'line',
-                data: chartData,
-                options: {
-                    scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: false
-                        }
-                    }]
-                    },
-                    legend: {
-                        display: false
-                    }
-                }
-            });
-        }
-    </script>-->
+    
 </body>
  
 </html>
