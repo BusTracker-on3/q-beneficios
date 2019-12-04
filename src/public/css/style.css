@@ -6,6 +6,9 @@ body {
     font-size: 16px;
 }
 
+h3{
+    text-align: center;
+}
 .icon {
     height: 30px;
     width: 30px;
@@ -17,63 +20,89 @@ body {
 
 .wrapper {
     background-color: #457eac;
+    overflow: auto;
+    margin: 0 auto;
 }
 
 .logo {
-    background-color: #686868;
+    background-color: #457eac;
+    height: 90px;
+    overflow: auto;
+    margin: 0 auto;
 }
 
-.content_home{
-    background-color: #c2aff0;
-    height: 400px;
+.image{
+    float: left;
+    margin-top: 20px;
+    widows: 200px;
+    margin-left: 500px;
 }
+
+.text_logo{
+    float: left;
+    margin-top: 20px;
+    color: #fff;
+    margin-left: 10px;
+    max-width: 300px;
+}
+
+
+.content_home{
+    background-color: #686868;
+    overflow: auto;
+    margin: 0 auto;
+}
+
+.form_style {
+    background-color: #686868;
+    overflow: auto;
+    margin: 0 auto;
+}
+
+.form_style label {
+    color: #fff;
+}
+
+.form_style button {
+    margin-bottom: 20px;
+}
+
 
 b{
     position: fixed;
     bottom:10px;
     right:10px;
   }
-  
-.fab button{
-    cursor: pointer;
-    width: 48px;
-    height: 48px;
-    border-radius: 30px;
-    background-color: #686868;
-    border: none;
-    box-shadow: 0 1px 5px rgba(0,0,0,.4);
-    font-size: 24px;
-    color: white;
-        
-    -webkit-transition: .2s ease-out;
-    -moz-transition: .2s ease-out;
-    transition: .2s ease-out;
-}
-  
-.fab button.main{
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    border-radius: 30px;
-    background-color: #686868;
-    right: 30px;
-    bottom: 100px;
-    z-index: 20;
-}
-  
-.fab button.main:before{
-    content: '+';
-}
-  
-.fab button.main:active,
-.fab button.main:focus{
-    outline: none;
-    background-color: #686868;
-    box-shadow: 0 3px 8px rgba(0,0,0,.5);
+
+.bt_new_role {
+    overflow: auto;
+    align-items: center;
 }
 
+#btn_new_role {
+    margin-left: 200px;
+}
+
+.wrapper_lists {
+    background-color: #686868;
+    overflow: auto;
+    align-items: center;
+    height: 550px;
+}
+
+.wrapper_lists table {
+    background-color: #2d5d7b;
+}
+
+.wrapper_lists table td{
+    color: #fff;
+}
+
+  
 .card {
     margin-top: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
     margin-bottom: 30px;
     border: none;
     cursor: pointer;
@@ -81,6 +110,8 @@ b{
     -moz-box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
     box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
 }
+
+
 
 .card-header {
     padding: 20px;

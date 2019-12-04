@@ -14,8 +14,15 @@
 <body>
 
     <div class="logo">
-        <img src="images/logo_qbeneficios.jpeg" alt="" class="logo_main">
+        <div class="image">
+            <img src="images/icone.jpeg" alt="">
+        </div>
+           
+        <div class="text_logo">
+            <h1>Q-benefícios</h1>
+        </div>        
     </div>
+    
 
     <div class="content_home">
         <div class="container">
@@ -23,21 +30,43 @@
                 <div class="col-6">
                     <div class="card">
                         <div class="card-body">
+                            <h3>Salário dos Cargos</h3>
                             <canvas id="chLine"></canvas>
                         </div>
                     </div>
                 </div>
+
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>Gasto com Benefícios por Cargo</h3>
+                            <canvas id="chLine_ben"></canvas>
+                        </div>
+                    </div>
+                </div>
+
             </div>     
         </div>
-    </div>
+<!--    </div>
     
-    <div class="wrapper">
+    <div class="wrapper"> -->
+        <div class="row">
+            <div class="col-6" id="btn_new_role"  ontouchstart="">
+                <a href="register_role"><button type="button" class="btn btn-primary">ADICIONAR CARGO</button></a>
+            </div>
+    
+            <div class="col-3" id="bt_search" ontouchstart="">
+                <a href="roles"><button type="button" class="btn btn-primary">BUSCAR</button></a>
+            </div>
+        </div>
+        
+
         <div class="row">
             <% if(vector_roles.length > 0) { %>
                 <% for(var i = 0; i < vector_roles.length; i++) { %>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body" id="card_card">
                                 <h5 class="text-muted">Cargo</h5>
                                 <div class="metric-value d-inline-block">
                                     <h1 class="mb-1"><%= vector_roles[i].name %></h1>
@@ -69,21 +98,26 @@
         </div>
     </div>
 
-    <div class="fab"  ontouchstart="">
-        <a href="register_role"><button type="button" class="main"></button></a>
-    </div>
+    
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/Chart.bundle.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
-    <script>
+    <script src="js/chart.js"></script>
+    <script type="text/javascript">
+        var vector = <%- JSON.stringify(vector_roles) %>;
+        var temp_vector_name = [];
+        var temp_vector_salary = [];
+        for(var i = 0; i < vector.length; i++){
+            temp_vector_name.push(vector[i].name);
+            temp_vector_salary.push(vector[i].salary);
+        }
+    
         var chartData = {
-            labels: ["S", "M", "T", "W", "T", "F", "S"],
+            labels: temp_vector_name,
+    //    labels: ["S", "M", "T", "W", "T", "F", "S"],
             datasets: [{
-                data: [589, 445, 483, 503, 689, 692, 634],
-            },
-            {
-                data: [639, 465, 493, 478, 589, 632, 674],
+                data: temp_vector_salary,
             }]
         };
 
@@ -106,6 +140,58 @@
                 }
             });
         }
+        var name_ben = [];
+        var total_ben = [];
+
+        for(var i = 0; i < vector.length; i++){
+            var temp_media = 0;
+            var ben_one = 0;
+            var ben_two = 0;
+            var ben_three = 0;
+
+            if(vector[i].value_benefit_one != ""){
+                ben_one = parseFloat(vector[i].value_benefit_one);
+            }
+
+            if(vector[i].value_benefit_two != ""){
+                ben_two = parseFloat(vector[i].value_benefit_two);
+            }
+
+            if(vector[i].value_benefit_three != ""){
+                ben_three = parseFloat(vector[i].value_benefit_three);
+            }
+
+            name_ben.push(vector[i].name);
+            temp_media = ben_one + ben_two + ben_three;
+            total_ben.push(temp_media);
+        }
+
+        var chartData_ben = {
+            labels: name_ben,
+            datasets: [{
+                data: total_ben
+            }]
+        };
+
+        var chLine_ben = document.getElementById("chLine_ben");
+        if (chLine_ben) {
+            new Chart(chLine_ben, {
+                type: 'line',
+                data: chartData_ben,
+                options: {
+                    scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: false
+                        }
+                    }]
+                    },
+                    legend: {
+                        display: false
+                    }
+                }
+            });
+        } 
     </script>
 </body>
  
