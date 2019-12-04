@@ -20,6 +20,14 @@ RoleDAO.prototype.getAll = function(response){
     });
 }
 
+RoleDAO.prototype.getAll2 = function(response) {
+    this._request.db.collection("roles", function(error, collection) {
+        collection.find({}).toArray(function(erro, result) {
+            response.render('lists/list_roles', {vector_roles: result});
+        });
+    });
+}
+
 module.exports = function(){
     return RoleDAO;
 }
