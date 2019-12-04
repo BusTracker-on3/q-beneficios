@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     
-    <title>Q-benefícios</title>
+    <title>Q-benefícios - Cargo</title>
 </head>
 
 <body>
@@ -35,6 +35,24 @@
                         <div class="card-body">
                             <h3>Gasto com Benefícios</h3>
                             <canvas id="pieChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3>Quantidade de funcionários : 20</h3>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h3>Salário : <%= role[0].salary %></h3>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h3>13º Anual (MAX) : <%= (role[0].salary / 12) * 10 %></h3>
+                            </div>
                         </div>
                     </div>
                 </div>
