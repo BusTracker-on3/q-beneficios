@@ -1,4 +1,4 @@
-module.exports.index = function(application, request, response){
+module.exports.index = function(application, request, response) {
     response.render('register/register_role');
 }
 
@@ -13,4 +13,9 @@ module.exports.register_role = function(application, request, response){
 module.exports.list_roles = function(application, request, response) {
     var roleDAO = new application.src.models.roleDAO(request);
     roleDAO.getAll2(response);
+}
+
+module.exports.list_role = function(application, request, response) {
+    var roleDAO = new application.src.models.roleDAO(request);
+    roleDAO.getByName(request.query.name.toString(), response);
 }
