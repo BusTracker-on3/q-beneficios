@@ -11,6 +11,14 @@ module.exports = function(application){
         application.src.controllers.role.list_roles(application, request, response);
     });
 
+    application.get('/update_role', function(request, response) {
+        application.src.controllers.role.update_role(application, request, response);
+    });
+
+    application.get('/delete_role', function(request, response) {
+        application.src.controllers.role.delete_role(application, request, response);
+    });
+    
     application.get('/role', function(request, response) {
         application.src.controllers.role.list_role(application, request, response);
     });
