@@ -14,9 +14,16 @@
 <body>
 
     <div class="logo">
-        <img src="images/logo_qbeneficios.jpeg" alt="" class="logo_main">
+        <div class="image">
+            <img src="images/icone.jpeg" alt="">
+        </div>
+            
+        <div class="text_logo">
+            <h1>Q-benefícios</h1>
+        </div>        
     </div>
 
+    <div class="form_style">
     <div class="container">
         <form method="POST" action="/register_role">
             <div class="form-row">
@@ -77,14 +84,19 @@
                     <input type="number" min="0" class="form-control" id="value_benefit_three" name="value_benefit_three" placeholder="Ex: 1.000,00">
                 </div>
             </div>
-
-            <button type="submit" class="btn btn-primary">CADASTRAR</button>
+            
+            <div class="form-row">
+                <div class="form-group col-md-10">
+                    <button type="submit" class="btn btn-primary">CADASTRAR</button>
+                </div>
+                <div class="form-group col-md-1">
+                    <a href="/"><button type="button" class="btn btn-info">CANCELAR</button></a>
+                </div>
+            </div>
         </form>
     </div>
-
-    <div class="footer">
-        <h1>rodapé</h1>
     </div>
+
 
     <script src="js/bootstrap.bundle.js"></script>
 

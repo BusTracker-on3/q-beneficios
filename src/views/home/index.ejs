@@ -24,6 +24,7 @@
             </div>        
         </a>
     <!--    <img src="images/teste.jpeg" alt="" class="logo_main"> -->
+
     </div>
     
 
@@ -53,9 +54,16 @@
 <!--    </div>
     
     <div class="wrapper"> -->
-        <div class="bt_new_role"  ontouchstart="">
-            <a href="register_role"><button type="button" class="main">Adicionar Cargo</button></a>
+        <div class="row">
+            <div class="col-6" id="btn_new_role"  ontouchstart="">
+                <a href="register_role"><button type="button" class="btn btn-primary">ADICIONAR CARGO</button></a>
+            </div>
+    
+            <div class="col-3" id="bt_search" ontouchstart="">
+                <a href="roles"><button type="button" class="btn btn-primary">BUSCAR</button></a>
+            </div>
         </div>
+        
 
         <div class="row">
             <% if(vector_roles.length > 0) { %>
@@ -115,8 +123,7 @@
             labels: temp_vector_name,
     //    labels: ["S", "M", "T", "W", "T", "F", "S"],
             datasets: [{
-                data: temp_vector_salary//,
-            //    data: [589, 445, 483, 503, 689, 692, 634],
+                data: temp_vector_salary,
             }]
         };
 

@@ -53,6 +53,21 @@ h3{
     margin: 0 auto;
 }
 
+.form_style {
+    background-color: #686868;
+    overflow: auto;
+    margin: 0 auto;
+}
+
+.form_style label {
+    color: #fff;
+}
+
+.form_style button {
+    margin-bottom: 20px;
+}
+
+
 b{
     position: fixed;
     bottom:10px;
@@ -64,48 +79,26 @@ b{
     align-items: center;
 }
 
-.bt_new_role button.main{
-    margin-left: 580px;
-}
-  
-.fab button{
-    cursor: pointer;
-    width: 48px;
-    height: 48px;
-    border-radius: 30px;
-    background-color: #686868;
-    border: none;
-    box-shadow: 0 1px 5px rgba(0,0,0,.4);
-    font-size: 24px;
-    color: white;
-        
-    -webkit-transition: .2s ease-out;
-    -moz-transition: .2s ease-out;
-    transition: .2s ease-out;
-}
-  
-.fab button.main{
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    border-radius: 30px;
-    background-color: #686868;
-    right: 20px;
-    bottom: 90px;
-    z-index: 20;
-}
-  
-.fab button.main:before{
-    content: '+';
-}
-  
-.fab button.main:active,
-.fab button.main:focus{
-    outline: none;
-    background-color: #686868;
-    box-shadow: 0 3px 8px rgba(0,0,0,.5);
+#btn_new_role {
+    margin-left: 200px;
 }
 
+.wrapper_lists {
+    background-color: #686868;
+    overflow: auto;
+    align-items: center;
+    height: 550px;
+}
+
+.wrapper_lists table {
+    background-color: #2d5d7b;
+}
+
+.wrapper_lists table td{
+    color: #fff;
+}
+
+  
 .card {
     margin-top: 20px;
     margin-left: 5px;
@@ -117,6 +110,8 @@ b{
     -moz-box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
     box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
 }
+
+
 
 .card-header {
     padding: 20px;
