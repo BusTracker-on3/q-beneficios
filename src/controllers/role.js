@@ -9,3 +9,8 @@ module.exports.register_role = function(application, request, response){
     roleDAO.insertRole(data);
     response.redirect('/');
 }
+
+module.exports.list_roles = function(application, request, response) {
+    var roleDAO = new application.src.models.roleDAO(request);
+    roleDAO.getAll2(response);
+}

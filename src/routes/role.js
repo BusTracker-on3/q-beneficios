@@ -6,4 +6,8 @@ module.exports = function(application){
     application.post('/register_role', function(request, response){
         application.src.controllers.role.register_role(application, request, response);
     });
+
+    application.get('/roles', function(request, response) {
+        application.src.controllers.role.list_roles(application, request, response);
+    });
 }

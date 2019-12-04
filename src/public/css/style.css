@@ -9,6 +9,10 @@ body {
 h3{
     text-align: center;
 }
+.icon {
+    height: 30px;
+    width: 30px;
+}
 
 .container {
     margin-top: 20px;
